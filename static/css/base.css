@@ -1,0 +1,212 @@
+.search {
+    display: inline-block;
+    position: relative;
+    }
+
+    .search input[type="text"] {
+    width: 250px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .search button[type="submit"] {
+    background-color: #2241f2;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: .9s ease;
+    }
+
+    .search button[type="submit"]:hover {
+    transform: scale(1.1);
+    color: rgb(255, 255, 255);
+    background-color: blue;
+    }
+
+    #profilresmi {
+    width: 40px; /* Genişlik */
+    height: 40px; /* Yükseklik */
+    border-radius: 50%; /* Yuvarlaklık yüzdesi */
+    }
+
+    .boton-elegante {
+    padding: 3px 5px;
+    border: 2px solid white;
+    background-color: white;
+    color: black;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+    }
+
+    .boton-elegante::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    transform: scale(0);
+    transition: transform 0.5s ease;
+    }
+
+    .boton-elegante:hover::after {
+    transform: scale(4);
+    }
+
+    .boton-elegante:hover {
+    border-color: #666666;
+    background: #292929;
+    }
+
+    /*making bell shape with one div */
+    .bell {
+    border: 2.17px solid white;
+    border-radius: 10px 10px 0 0;
+    width: 15px;
+    height: 17px;
+    background: transparent;
+    display: block;
+    position: relative;
+    top: -3px;
+    }
+    .bell::before,
+    .bell::after {
+    content: "";
+    background: white;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2.17px;
+    }
+    .bell::before {
+    top: 100%;
+    width: 20px;
+    }
+    .bell::after {
+    top: calc(100% + 4px);
+    width: 7px;
+    }
+    /*container main styling*/
+    .notification {
+    background: transparent;
+    border: none;
+    padding: 15px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 300ms;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    /*notifications number with before*/
+    .notification::before {
+    content: "1";
+    color: white;
+    font-size: 10px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    }
+    /*container background hover effect*/
+    .notification:hover {
+    background: rgba(170, 170, 170, 0.062);
+    }
+    /*container animations*/
+    .notification:hover > .bell-container {
+    animation: bell-animation 650ms ease-out 0s 1 normal both;
+    }
+    /*bell ring and scale animation*/
+    @keyframes bell-animation {
+    20% {
+        transform: rotate(15deg);
+    }
+
+    40% {
+        transform: rotate(-15deg);
+        scale: 1.1;
+    }
+    60% {
+        transform: rotate(10deg);
+        scale: 1.1;
+    }
+    80% {
+        transform: rotate(-10deg);
+    }
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+    }
+
+    body {
+        background-image: url('../img/arkaplan.jpg');
+        /*background-size: cover;*/
+        background-color: #e9ecfc; /* Arka plan rengi, resim yüklenirken veya arka plan resmi boyutlandırıldığında görünecek */
+    }
+
+
+    .button1 {
+    position: relative;
+    overflow: hidden;
+    height: 3rem;
+    padding: 0 2rem;
+    border-radius: 1.5rem;
+    background: #5c73f2;
+    background-size: 400%;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    }
+
+    .button1:hover::before {
+    transform: scaleX(1);
+    }
+
+    .button1-content {
+    position: relative;
+    z-index: 1;
+    }
+
+    .button1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    background: rgb(34,65,242);
+    background: linear-gradient(90deg, rgba(34,65,242,1) 0%, rgba(92,115,242,1) 78%, rgba(242,242,242,1) 100%);
+    transition: all 0.475s;
+    }
