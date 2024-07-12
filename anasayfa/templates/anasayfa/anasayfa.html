@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Connect4Teach - Anasayfa</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C400italic%2C600%2C700%2C700italic%7COswald%3A400%2C300%7CVollkorn%3A400%2C400italic'><link rel="stylesheet" href="{% static 'anasayfa/css/style.css'%}">
+
+</head>
+<body>
+
+<!-- partial:index.partial.html -->
+<main class="main-content">
+  <section class="slideshow">
+    <div class="slideshow-inner">
+      <div class="slides">
+        <div class="slide is-active ">
+          <div class="slide-content">
+            <div class="caption">
+              <img src="{% static 'anasayfa/img/logo1.png'%}" style="width: 300px;">
+              <div class="title">EĞİTİMDE SINIRLARI KALDIR!</div>
+              <div class="text">
+                <p>Eğitmenler ve öğrenciler için devrim niteliğinde bir platform sunuyoruz!</p>
+              </div> 
+              <a href="{% url 'kayit_ol' %}" class="btn">
+                <span class="btn-inner">KAYIT OL</span>
+              </a>
+              <br>
+              <a href="{% url 'giris_yap' %}" class="btn">
+                <span class="btn-inner">GİRİŞ YAP</span>
+              </a>
+            </div>
+          </div>
+          <div class="image-container"> 
+            <img src="{% static 'anasayfa/img/education-school-outline-seamless-pattern_104589-278.jpg'%}" alt="" class="image" />
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-content">
+            <div class="caption">
+              <div class="title">HAKKIMIZDA</div>
+              <div class="text">
+                <p>Connect4Teach projesi, öğretmenler ve öğrenciler arasındaki eğitim etkileşimini artırmayı amaçlayan yenilikçi bir platformdur. Öğrencilerin soru sorma, özel ders alma ve öneri ihtiyaçlarını tek bir çatı altında toplamayı hedeflemektedir.</p>
+<p>Öğretmenler, kişisel bilgilerini girerek öğrencilerin kendilerine ulaşmasını sağlar ve öğrencilerin yüklediği soruları yanıtlar. Öğrenciler, aldıkları yanıtları değerlendirme ve öğretmenleri puanlama imkanına sahiptir. Böylece, öğretmenlerin performansları şeffaf bir şekilde ölçülür.</p>
+<p>Öğrenciler, ilgili dersler için sorularını kendi profillerine yükleyebilir ve bu sorulara gelen yanıtları değerlendirerek en iyi çözümleri bulabilirler. Anasayfada, öğretmen profillerini inceleyerek özel ders taleplerinde bulunabilir ve diğer öğrencilerin sorduğu soruları görüntüleyebilirler. Bu sayede, öğrenciler arası bilgi paylaşımı ve etkileşim de teşvik edilir.</p>
+<p>Connect4Teach, eğitim sürecini daha interaktif ve verimli hale getirmeyi amaçlayan bir platformdur. Öğrencilerin ve öğretmenlerin eğitim yolculuklarında birbirlerine destek olabilecekleri bu ortamı yaratmaktan gurur duyuyoruz. Eğitimde yeni bir dönemi başlatmak için buradayız!</p>
+              </div> 
+            </div>
+          </div>
+          <div class="image-container">
+            <img src="https://images.pexels.com/photos/7516363/pexels-photo-7516363.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="image" />
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-content">
+            <div class="caption">
+              <div class="title">BİZE ULAŞIN!</div>
+              <div class="text">
+                <p>Öneri ve görüşleriniz için bizlere ulaşabilirsiniz!</p>
+              </div> 
+              <a href="mailto:info@connect4teach.com" class="btn">
+                <span class="btn-inner">E-MAIL GÖNDER</span>
+              </a>
+            </div>
+          </div>
+          <div class="image-container">
+            <img src="https://images.pexels.com/photos/5940829/pexels-photo-5940829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="image" />
+          </div>
+        </div>
+      </div>
+      <div class="pagination">
+        <div class="item is-active"> 
+          <span class="icon">1</span>
+        </div>
+        <div class="item">
+          <span class="icon">2</span>
+        </div>
+        <div class="item">
+          <span class="icon">3</span>
+        </div>
+      </div>
+      <div class="arrows">
+        <div class="arrow prev">
+          <span class="svg svg-arrow-left">
+            <svg version="1.1" id="svg4-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M13,26c-0.256,0-0.512-0.098-0.707-0.293l-12-12c-0.391-0.391-0.391-1.023,0-1.414l12-12c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L2.414,13l11.293,11.293c0.391,0.391,0.391,1.023,0,1.414C13.512,25.902,13.256,26,13,26z"/> </svg>
+            <span class="alt sr-only"></span>
+          </span>
+        </div>
+        <div class="arrow next">
+          <span class="svg svg-arrow-right">
+            <svg version="1.1" id="svg5-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M1,0c0.256,0,0.512,0.098,0.707,0.293l12,12c0.391,0.391,0.391,1.023,0,1.414l-12,12c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414L11.586,13L0.293,1.707c-0.391-0.391-0.391-1.023,0-1.414C0.488,0.098,0.744,0,1,0z"/> </svg>
+            <span class="alt sr-only"></span>
+          </span>
+        </div>
+      </div>
+    </div> 
+  </section>
+</main>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script><script  src="{% static 'anasayfa/js/script.js'%}"></script>
+
+</body>
+</html>
