@@ -1,0 +1,25 @@
+{% load static %}
+
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{% static 'egitmen/img/worksheet1.jpg'%}" class="img-fluid" alt="{{worksheet.title}}">
+            </div>
+            <div class="col-md-8">
+                <h5 class="card-title">{{worksheet.title}}</h5>
+                <p class="card-text"><strong>Ders:</strong> {{calisma_kagidi.ders }}</p>
+                <p class="card-text"><strong>Konu:</strong> {{calisma_kagidi.konu }}</p>
+                <p class="card-text"><strong>Sınıf:</strong> {{calisma_kagidi.sinif }}</p>
+                <p class="card-text"><strong>Eğitmen:</strong> {{calisma_kagidi.yazar }}</p>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <button class="btn btn-primary btn-block">Çalışma Kağıdını İndir</button>
+            </div>
+        </div>
+
+    </div>
+</div>

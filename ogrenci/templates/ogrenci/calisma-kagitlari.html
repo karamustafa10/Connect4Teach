@@ -1,0 +1,46 @@
+{% extends "base2.html" %}
+{% load static %}
+
+{% block css_files %} 
+    
+{% endblock %}
+
+{% block title %}
+    Çalışma Kağıtları
+{% endblock %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center">
+    <div class="col-md-9">
+        
+        {% for calisma_kagidi in calisma_kagitlari %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="{% static 'egitmen/img/worksheet.png'%}" class="img-fluid" alt="{{worksheet.title}}">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 class="card-title">{{worksheet.title}}</h5>
+                            <p class="card-text"><strong>Ders:</strong> {{calisma_kagidi.ders }}</p>
+                            <p class="card-text"><strong>Konu:</strong> {{calisma_kagidi.konu }}</p>
+                            <p class="card-text"><strong>Sınıf:</strong> {{calisma_kagidi.sinif }}</p>
+                            <p class="card-text"><strong>Eğitmen:</strong> {{calisma_kagidi.yazar }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <a href="{{ calisma_kagidi.dosya.url }}" class="btn btn-primary btn-block" download>Çalışma Kağıdını İndir</a>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

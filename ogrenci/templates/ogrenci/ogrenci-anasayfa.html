@@ -1,0 +1,40 @@
+{% extends "base2.html" %}
+{% load static %}
+
+{% block css_files %} 
+    <link rel="stylesheet" href="{% static 'egitmen/css/_card.css'%}">
+{% endblock %}
+
+{% block title %}
+    Öğrenci Anasayfa
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid" style="display: flex; justify-content: center;">
+    <div class="container">
+        <div class="row">
+        
+            {% for egitmen in egitmenler %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <a href="{% url 'ogrenci_profil' egitmen.id %}" style="text-decoration: none; color: inherit;">
+                        <div class="our-team">
+                            <div class="picture">
+                                <img class="img-fluid" src="{{ egitmen.photo.url }}">
+                            </div>
+                    
+                            <div class="team-content">
+                                <h3 class="name">{{ egitmen.firstname }} {{ egitmen.lastname }}</h3>
+                                <h4 class="title">Alanı: {{ egitmen.field_info }}</h4>
+                            </div>
+                    
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

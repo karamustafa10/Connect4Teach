@@ -1,0 +1,93 @@
+{% extends "header.html" %}
+{% load static %}
+
+{% block title %}
+    Soru Yükle
+{% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'ogrenci/css/style.css' %}" />
+{% endblock %}
+
+{% block profile_body %}
+<script src="{% static 'ogrenci/js/script.js' %}"></script>
+
+
+
+
+<div class="container-fluid" style="padding: 40px; display: flex; justify-content: center;">
+    <div>
+    <button class="button1" onclick="goToQuestions()">Sorularım</button>
+            <script>
+                function goToQuestions() {
+                window.location.href = "{% url 'ogrenci_profilim' %}";
+            }
+            </script>
+    </div>
+    <div>
+    <button class="button1" onclick="goToUpload()">Soru Yükle</button>
+            <script>
+            function goToUpload() {
+                window.location.href = "{% url 'soru_yukle' %}";
+                }
+            </script>
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="send-question-form-div">
+        <form method="post" action="{% url 'send_question' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="lesson_area">Ders Alanı:</label>
+                <select id="lesson_area" name="lesson_area" class="form-control" required>
+                    <option value="#ANY">Ders Alanı:</option>
+                    <option value="Matematik">Matematik</option>
+                    <option value="Fizik">Fizik</option>
+                    <option value="Kimya">Kimya</option>
+                    <option value="Edebiyat">Edebiyat</option>
+                    <option value="Tarih">Tarih</option>
+                    <option value="Biyoloji">Biyoloji</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="student_class">Sınıf Bilgisi:</label>
+                <select id="student_class" name="student_class" class="form-control" required>
+                    <option value="#ANY">Sınıf Bilgisi:</option>
+                    <option value="1">1. Sınıf</option>
+                    <option value="2">2. Sınıf</option>
+                    <option value="3">3. Sınıf</option>
+                    <option value="4">4. Sınıf</option>
+                    <option value="5">5. Sınıf</option>
+                    <option value="6">6. Sınıf</option>
+                    <option value="7">7. Sınıf</option>
+                    <option value="8">8. Sınıf</option>
+                    <option value="9">9. Sınıf</option>
+                    <option value="10">10. Sınıf</option>
+                    <option value="11">11. Sınıf</option>
+                    <option value="12">12. Sınıf</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="describe">Açıklama:</label> <br>
+                <input type="text" id="describe" name="describe" class="form-control-file">
+            </div><br>
+            <div class="form-group">
+                <label for="konu">Konu:</label> <br>
+                <input type="text" id="konu" name="konu" class="form-control-file">
+            </div><br>
+            <div class="form-group">
+                <label for="questionimage">Resim:</label>
+                <input type="file" id="questionimage" name="questionimage" class="form-control-file">
+            </div><br>
+            <button type="submit" class="button1">Yükle</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
