@@ -1,0 +1,119 @@
+{% extends "header2.html" %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'egitmen/css/style.css' %}" />
+<style>
+    .info, .info h2, .info p {
+        color: white;
+    }
+</style>
+{% endblock %}
+
+{% block title %}
+    Profil
+{% endblock %}
+
+
+{% block profile_body %}
+<script src="{% static 'egitmen/js/script.js' %}"></script>
+
+<br><br><br><br><br><br>
+
+<div class="container-fluid py-5" style="background: rgb(34,65,242); background: linear-gradient(180deg, rgba(34,65,242,1) 0%, rgba(73,98,242,1) 35%, rgba(92,115,242,1) 100%); min-height: 250px;">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8">
+            <div class="row align-items-center">
+                <div class="col-3 col-md-2">
+                    {% if profil.photo %}
+                        <div class="profile-container2">
+                            <img src="{{ profil.photo.url }}" class="rounded-circle img-fluid">
+                        </div>
+                    {% else %}
+                        <img src="{% static 'site4/img/profile.png' %}" alt="Profil Resmi" class="img-fluid">
+                    {% endif %}
+                </div>
+                <div class="col-9 col-md-10">
+                    <div class="info">
+                        <h2><span id="firstName"></span> <span id="lastName"></span></h2>
+                        <p>E-posta: <span id="email"></span></p>
+                        <p>Sınıf: <span id="className"></span></p>
+                        <script>
+                            var uye = {
+                                "first_name": "{{ profil.firstname }}",
+                                "last_name": "{{ profil.lastname }}",
+                                "email": "{{ profil.email }}",
+                                "class_name": "{{ profil.field_info }}"
+                            };
+                            uye.first_name = uye.first_name.charAt(0).toUpperCase() + uye.first_name.slice(1);
+                            uye.last_name = uye.last_name.charAt(0).toUpperCase() + uye.last_name.slice(1);
+                            document.getElementById("firstName").textContent = uye.first_name;
+                            document.getElementById("lastName").textContent = uye.last_name;
+                            document.getElementById("email").textContent = uye.email;
+                            document.getElementById("className").textContent = uye.class_name;
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container d-flex justify-content-center mt-4">
+    <form method="GET" action="{% url 'profil' profil.id %}">
+        <div class="form-group">
+            <label for="ders_filtre">Ders Filtrele:</label>
+            <select id="ders_filtre" name="ders_filtre" class="form-control">
+                <option value="">Tümü</option>
+                {% for ders in lesson_areas %}
+                <option value="{{ ders }}" {% if ders == request.GET.ders_filtre %}selected{% endif %}>{{ ders|capfirst }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrele</button>
+    </form>
+</div>
+
+<div class="container d-flex justify-content-center mt-4">
+    <div class="col-md-12 mb-4">
+        {% for soru in sorular %}
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="row no-gutters">
+                    <div class="col-md-4 d-flex align-items-center">
+                        <img src="{{ soru.fotograf.url }}" class="card-img" alt="Soru Resmi">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item"><strong>Ders:</strong> {{ soru.ders }}</li>
+                                <li class="list-group-item"><strong>Konu:</strong> {{ soru.konu }}</li>
+                                <li class="list-group-item"><strong>Sınıf:</strong> {{ soru.sinif }}</li>
+                                <li class="list-group-item"><strong>Yazar:</strong> {{ soru.yazar }}</li>
+                            </ul>
+                            <div class="card mt-3">
+                                <div class="card-body">
+                                    <p class="card-text"><strong>Açıklama:</strong> {{ soru.aciklama }}</p>
+                                </div>
+                            </div>
+                            <div class="card mt-3">
+                                <div class="card-header">
+                                    <h5 class="card-title">Cevaplar</h5>
+                                </div>
+                                <ul class="list-group list-group-flush cevaplar" id="soru-{{ soru.id }}-cevaplar">
+                                    <!-- Cevaplar buraya eklenecek -->
+                                    {% for cevap in soru.cevaplar.all %}
+                                        <li class="list-group-item"><strong>{{ cevap.yazar }}:</strong> {{ cevap.cevap_metni }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

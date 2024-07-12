@@ -1,0 +1,307 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img {
+    width: 300px;
+    height: auto;
+   
+}
+
+.search-form {
+   margin-left: 40px; /*  Arama kutusundan logoya olan mesafe */
+    margin-right: 300px;
+}
+
+.search-form input[type="text"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.search-form button {
+    padding: 8px 15px;
+    background-color: #2241F2;
+    color: #F2F2F2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #4962F2;
+}
+
+header img {
+    width: 300px;
+    height: auto;
+}
+
+
+
+
+.profile-info {
+    display: flex;
+    align-items: center;
+}
+
+.profile-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Yuvarlak profil resmi */
+    margin-left: 10px; /* Profil resmi ile öğrenci bilgisi arasındaki mesafe */
+}
+
+.student-info h2 {
+    margin: 0;
+}
+
+
+
+
+.sidebar {
+    width: 200px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    position: absolute;
+    top: 24%;
+    bottom: 0;
+    z-index: 1; /* Logonun altinda olması için */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    padding-left: 20%;
+    margin-top: 50%;
+}
+
+.sidebar ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;/* yazilar arasi bosluk */
+}
+
+.sidebar ul li img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.sidebar ul li a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.sidebar ul li a:hover {
+    color: #2241F2;
+}
+
+.footer-link {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: #2241F2;
+    font-weight: bold;
+}
+
+.footer-link:hover {
+    color: #4962F2;
+}
+
+
+.rectangle-block {
+    background-color: #2241F2;
+    height: 70%;
+    margin-top: 6%;
+    margin-left: 10%;
+    border-radius: 10px;
+    padding: 20px;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+}
+
+.blokprofile-info {
+    display: flex;
+    align-items: center;
+}
+
+.blokprofile-info img {
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    margin-right: 43%;
+}
+
+.info {
+    text-align: left;
+}
+
+.info h2 {
+    color: #F2F2F2;
+    font-size: 30px;
+    margin-bottom: 32px;
+    margin-left: 10%;
+}
+
+.info p {
+    color: #F2F2F2;
+    margin: 0;
+    margin-top: 12px;
+    font-size: 18px;
+    margin-left: 10%;
+}
+
+
+
+/* CSS styles for the slideshow */
+.fade {
+    display: none;
+    animation: fadeEffect 1.5s linear;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 500px;
+    max-height: 500px;
+    margin: auto;
+}
+.slide-content {
+    display: flex;
+}
+
+.mySlides img {
+    width: 50%;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 3.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+
+.question-buttons{
+    margin-left: 25%;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.question-buttons div{
+    padding-right: 10px;
+}
+
+.send-question-form-div {
+    margin-left: 10%; /* Formu daha geniş göstermek için sol boşluğu azaltın */
+    margin-right: 10%; /* Sağ tarafta boşluk bırakmak için */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center; /* Formu ortalamak için */
+    flex-wrap: nowrap;
+    width: 80%; /* Formun genişliğini artırın */
+    max-width: 800px; /* Maksimum genişliği belirleyin */
+    background-color: #f9f9f9; /* Formun arka plan rengini değiştirin */
+    border-radius: 10px; /* Kenarları yuvarlayın */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Gölge ekleyin */
+}
+
+.send-question-form-div .form-group {
+    width: 100%; /* Form gruplarının genişliğini artırın */
+    margin-bottom: 15px; /* Form grupları arasındaki boşluğu artırın */
+}
+
+.send-question-form-div label {
+    font-size: 18px; /* Etiketlerin yazı boyutunu artırın */
+    font-weight: bold; /* Etiketleri kalın yapın */
+    margin-bottom: 5px; /* Etiketlerin altındaki boşluğu artırın */
+}
+
+.send-question-form-div select, 
+.send-question-form-div input[type="file"] {
+    width: 100%; /* Giriş alanlarının genişliğini artırın */
+    padding: 10px; /* Giriş alanlarının iç boşluğunu artırın */
+    font-size: 16px; /* Giriş alanlarının yazı boyutunu artırın */
+    border: 1px solid #ccc; /* Giriş alanlarının kenarlarını belirleyin */
+    border-radius: 5px; /* Giriş alanlarının kenarlarını yuvarlayın */
+}
+
+.send-question-form-div button {
+    width: 100%; /* Butonun genişliğini artırın */
+    padding: 10px; /* Butonun iç boşluğunu artırın */
+    font-size: 18px; /* Butonun yazı boyutunu artırın */
+    background-color: #2241F2; /* Butonun arka plan rengini ayarlayın */
+    color: #FFF; /* Butonun yazı rengini ayarlayın */
+    border: none; /* Butonun kenarlarını kaldırın */
+    border-radius: 5px; /* Butonun kenarlarını yuvarlayın */
+    cursor: pointer; /* Butona işaretçi ekleyin */
+}
+
+.send-question-form-div button:hover {
+    background-color: #4962F2; /* Butonun üzerine gelindiğinde rengini değiştirin */
+}

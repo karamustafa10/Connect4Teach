@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %} 
+    
+{% endblock %}
+
+{% block title %}
+    Cevaplanmış Sorular
+{% endblock %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center mt-4">
+    <form method="GET" action="{% url 'cevaplanmis_sorular' %}">
+        <div class="form-group">
+            <label for="ders_filtre">Ders Filtrele:</label>
+            <select id="ders_filtre" name="ders_filtre" class="form-control">
+                <option value="">Tümü</option>
+                {% for ders in lesson_areas %}
+                <option value="{{ ders }}" {% if ders == request.GET.ders_filtre %}selected{% endif %}>{{ ders|capfirst }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrele</button>
+    </form>
+</div>
+
+<div class="container d-flex justify-content-center">
+    <div class="col-md-12 mb-4">
+        
+        {% for soru in sorular %}
+
+                <div class="col-md-12 mb-4">
+                    <div class="card">
+                        <div class="row no-gutters">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <img src="{{ soru.fotograf.url }}" class="card-img" alt="Soru Resmi">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><strong>Ders:</strong> {{ soru.ders }}</li>
+                                        <li class="list-group-item"><strong>Konu:</strong> {{ soru.konu }}</li>
+                                        <li class="list-group-item"><strong>Sınıf:</strong> {{ soru.sinif }}</li>
+                                        <li class="list-group-item"><strong>Yazar:</strong> {{ soru.yazar }}</li>
+                                    </ul>
+                                    <div class="card mt-3">
+                                        <div class="card-body">
+                                            <p class="card-text"><strong>Açıklama:</strong> {{ soru.aciklama }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-3">
+                                        <div class="card-header">
+                                            <h5 class="card-title">Cevaplar</h5>
+                                        </div>
+                                        <ul class="list-group list-group-flush cevaplar" id="soru-{{ soru.id }}-cevaplar">
+                                            <!-- Cevaplar buraya eklenecek -->
+                                            {% for cevap in soru.cevaplar.all %}
+                                                <li class="list-group-item"><strong>{{ cevap.yazar }}:</strong> {{ cevap.cevap_metni }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    <form method="POST" action="{% url 'cevap_gonder' %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="soru_id" value="{{ soru.id }}">
+                                        <div class="mb-3">
+                                            <label for="cevap_metni" class="form-label">Cevap Ekle:</label>
+                                            <textarea class="form-control" id="cevap_metni" name="cevap_metni" rows="3" required></textarea>
+                                        </div>
+                                        <div class="gap-5">
+                                            <button type="submit" class="btn btn-primary">Gönder</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
